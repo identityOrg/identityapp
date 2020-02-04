@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "identityapp.fullname" . }}
+  labels:
+    {{- include "identityapp.labels" . | nindent 4 }}
+data:
+  mysqlUrl: jdbc:mysql://{{ .Release.Name }}-mysql:3306/{{ .Values.mysql.mysqlDatabase }}
+  mysqlUser: {{ .Values.mysql.mysqlUser }}
+  mysqlPass: {{ .Values.mysql.mysqlPassword }}
