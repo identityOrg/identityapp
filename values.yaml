@@ -36,6 +36,9 @@ service:
   type: ClusterIP
   port: 8080
 
+identity:
+  issuer: https://id.prasenjit.net
+
 ingress:
   enabled: true
   annotations: {}

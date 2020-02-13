@@ -59,6 +59,11 @@ spec:
                   key: mysqlPass
             - name: spring.jpa.hibernate.naming.physical-strategy
               value: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+            - name: identity.serverMetadata.issuer
+              valueFrom:
+                configMapKeyRef:
+                  key: issuer
+                  name: {{ include "identityapp.fullname" . }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
